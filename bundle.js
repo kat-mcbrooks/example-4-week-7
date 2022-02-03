@@ -55,7 +55,6 @@
           const repoNameEl = document.querySelector("#repo-name");
           const repoDescriptionEl = document.querySelector("#repo-description");
           const imgEl = document.querySelector("#imgid");
-          console.log(repoNameEl.innerHTML = data.full_name);
           repoNameEl.innerHTML = data.full_name;
           repoDescriptionEl.innerHTML = data.description;
           imgEl.src = data.organization.avatar_url;

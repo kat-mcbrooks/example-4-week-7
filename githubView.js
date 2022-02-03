@@ -10,7 +10,7 @@ class GithubView {
       const repoName = repoInputEl.value;
 
       this.api.getRepoInfo(repoName, repoData => {
-        this.display(repoData);
+        this.display(repoData); //`repodata` is now a full JS object (thanks to the getRepoInfo method in githubApi. 2nd argument here is the callback function i.e. not executed until after we get the JS object - repoData). As a JS object, we can call .full_name to access its properties
       });
 
     });
@@ -21,9 +21,9 @@ class GithubView {
     const repoDescriptionEl = document.querySelector('#repo-description');
     const imgEl = document.querySelector('#imgid');
 
-    console.log(repoNameEl.innerHTML = data.full_name);
-    repoNameEl.innerHTML = data.full_name
-    repoDescriptionEl.innerHTML = data.description;
+    // console.log(repoNameEl.innerHTML = data.full_name);
+    repoNameEl.innerHTML = data.full_name //repoNameEl is an h1 element so we don't call .innerText (which is used for div)
+    repoDescriptionEl.innerHTML = data.description; //repoDescriptionEl is a p element so we don't call .innerText (which is used for div)
     imgEl.src = data.organization.avatar_url; 
 
     // document.getElementById("imgid").src = data.organization.avatar_url;
